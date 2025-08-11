@@ -1,0 +1,2 @@
+# Docker Compose configuration for Whisper App
+# Defines and runs the multi-container setup (frontend, backend, database)

@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "whisper-backend"
+version = "0.1.0"
+description = "The FastAPI backend for the AI-native transcript and insights application."
+authors = [
+    { name = "Amir Abdallah", email = "amirabdallahpfe@gmail.com" },
+]
+requires-python = ">=3.10"
+
+dependencies = [
+    # Core Web Framework
+    "fastapi",
+    "uvicorn[standard]",
+
+    # AI SDKs & HTTP Client
+    "groq",
+    "google-generativeai",
+    "httpx",  # Modern HTTP client for calling external APIs
+
+    # Database (ORM and Driver for Neon/Postgres)
+    "sqlalchemy>=2.0",
+    "psycopg[binary]",  # The modern psycopg3 driver
+
+    # Configuration & Utilities
+    "pydantic-settings",
+    "python-multipart", # Essential for handling file uploads
+]
+
+# Tell hatchling not to try to build a package - this is just a FastAPI app
+[tool.hatch.build.targets.wheel]
+bypass-selection = true
